@@ -1,6 +1,14 @@
 @import "./variables";
-@import "./Checklist.scss";
+@import "./todolist.scss";
+@import "./todoitems.scss";
 
-.App {
-  text-align: center;
+body {
+  background-color: #66CCFF;
+  display: flex;
+  font-family: sans-serif;
+  justify-content: center;
+  padding: 50px;
+  position: relative;
 }
+
+// .App {}

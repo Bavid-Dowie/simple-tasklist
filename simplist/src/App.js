@@ -1,14 +1,65 @@
-import React from 'react';
-import Checklist from './components/Checklist';
+import React, { Component } from 'react';
+import ToDoList from './components/ToDoList';
+import ToDoItems from './components/ToDoItems';
 import './styles/style.css';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Jeremy's Daily Tasklist</h1>
-      <Checklist />
-    </div>
-  );
+class App extends Component {
+  inputElement = React.createRef()
+  constructor() {
+    super()
+    this.state = {
+      items: [],
+      currentItem: {
+        text: '',
+        key: ''
+      }
+    }
+  }
+  deleteItem = key => {
+    const filteredItems = this.state.items.filter(item => {
+      return item.key !== key
+    })
+    this.setState({
+      items: filteredItems,
+    })
+  }
+  handleInput = (e) => {
+    const itemText = e.target.value;
+    const currentItem = { text: itemText, key: Date.now() };
+    this.setState({
+      currentItem,
+    })
+  }
+  addItem = (e) => {
+    e.preventDefault();
+    const newItem = this.state.currentItem;
+    if (newItem.text !== '') {
+      console.log(newItem);
+      const items = [...this.state.items, newItem];
+      this.setState({
+        items: items,
+        currentItem: { text: '', key: '' },
+      })
+    }
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Jeremy's Daily Tasklist</h1>
+        <ToDoList
+          addItem={this.addItem}
+          inputElement={this.inputElement}
+          handleInput={this.handleInput}
+          currentItem={this.state.currentItem}
+        />
+        <ToDoItems
+          entries={this.state.items}
+          deleteItem={this.deleteItem}
+        />
+      </div>
+    );
+  };
 }
 
 export default App;

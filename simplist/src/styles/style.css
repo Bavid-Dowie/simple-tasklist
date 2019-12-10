@@ -1,4 +1,17 @@
-.App {
-  text-align: center;
+li {
+  text-decoration: none;
+}
+
+body {
+  background-color: #66CCFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: sans-serif;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 50px;
+  position: relative;
 }
 /*# sourceMappingURL=style.css.map */
