@@ -1,3 +1,7 @@
+form input.hover {
+  background: blue;
+}
+
 li {
   text-decoration: none;
 }

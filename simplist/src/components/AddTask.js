@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddTask = ({addedTask}) => {
+const AddTask = ({ addedTask }) => {
   let input;
 
   return (
